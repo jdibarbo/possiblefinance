@@ -8,6 +8,7 @@ import pandas as pd
 from pathlib import Path
 from sklearn.feature_selection import SelectFromModel
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
 
 path = str(Path().resolve())
 sys.path.insert(0, path + '\\src\\fit_model\\')
@@ -38,8 +39,8 @@ X_feat_sel = X.loc[:,~X.columns.isin(cols_to_drop)]
 
 ########## Model training
 # Train test split
-X_train, X_test, y_train, y_test =  train_test_split(X, y,
-                                                        test_size=0.2, random_state=Seed)
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                        test_size=0.2, random_state=seed)
 
 # Train model
 rfc_gs = RandomForestClassifier(random_state=seed,
