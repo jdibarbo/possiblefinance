@@ -27,6 +27,7 @@ def main():
     model = pickle.load(open(path + '\\src\\fit_model\\rf.pkl', 'rb'))
     y_pred = model.predict_proba(X)
     # add predicted probabilites to df
+
     df['preds'] = y_pred
 
     return df
