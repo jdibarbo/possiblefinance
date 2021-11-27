@@ -44,7 +44,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 # Train model
 rfc_gs = RandomForestClassifier(random_state=seed,
-                                n_estimators = 1200,
+                                n_estimators = 1000,
                                 min_samples_split = 10,
                                 min_samples_leaf = 1,
                                 max_features = 'auto',
@@ -53,3 +53,4 @@ rfc_gs = RandomForestClassifier(random_state=seed,
 rf_gs_mdl = rfc_gs.fit(X_train, y_train)
 
 # Export model pkl
+pickle.dump(rf_gs_mdl, open(path + '\\src\\fit_model\\rf.pkl', 'wb'))
