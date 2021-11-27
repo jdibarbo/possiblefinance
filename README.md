@@ -1,3 +1,8 @@
+# Environment
+To create the environment required to run the notebooks, in the terminal/cmd: 
+- go to the folder that contains the repository
+- run conda env create -f environment.yml
+
 # Objective 
 
 The main questions to answer from the data are:
@@ -10,5 +15,5 @@ For **item 1**, I will take into account only the *applications_approved* file. 
 - I will train a logistic regression with L1 penalty to emulate a Lasso regression, to reduce the number of features. 
 - I will train two classification models: an XGBoost and a Random Forest model, both for classification, to see what are the important features to identify applicants who will perform better. 
 
-For **item 2**, I will take both files and also build a classification model, and build a risk scoring model. 
+For **item 2**, I will use the model trained for item 1, as what is asked is esentially the prediction of the probability of default, where I assume applicants in good standing (status = 1) have not defaulted, while applicants in bad standing (status = 0) have. Therefore, the default rate will be the probabilty of each applicant to default as determined by the chosen model.    
 
