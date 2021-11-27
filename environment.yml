@@ -10,4 +10,5 @@ dependencies:
   - xgboost
   - ipykernel
   - pydotplus
+  - graphviz
   - shap
