@@ -2,6 +2,7 @@
 To create the environment required to run the notebooks, in the terminal/cmd: 
 - go to the folder that contains the repository
 - run conda env create -f environment.yml
+- run python -m ipykernel install --user --name=possible to install in jupyter
 
 # Objective 
 
