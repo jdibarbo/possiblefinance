@@ -11,14 +11,14 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 path = str(Path().resolve())
-sys.path.insert(0, path + '\\src\\fit_model\\')
+sys.path.insert(0, path + '/src/fit_model/')
 import DataPreparation as data_prep
 
 importlib.reload(data_prep)
 seed = 1984
 
 # Load data
-path_data = str(Path().resolve()) + '\\src\\data\\'
+path_data = str(Path().resolve()) + '/src/data/'
 df = pd.read_csv(path_data + 'approved_application_data.csv')
 
 ########### Feature selection
@@ -39,11 +39,10 @@ X_feat_sel = X.loc[:,~X.columns.isin(cols_to_drop)]
 
 ########## Model training
 # Train test split
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                        test_size=0.2, random_state=seed)
-
+X_train, X_test, y_train, y_test = train_test_split(X_feat_sel, y,
+                                                    test_size=0.2, random_state=seed)
 # Train model
-rfc_gs = RandomForestClassifier(random_state=seed,
+rfc_gs = RandomForestClassifier(random_state = seed,
                                 n_estimators = 1000,
                                 min_samples_split = 10,
                                 min_samples_leaf = 1,
@@ -53,4 +52,4 @@ rfc_gs = RandomForestClassifier(random_state=seed,
 rf_gs_mdl = rfc_gs.fit(X_train, y_train)
 
 # Export model pkl
-pickle.dump(rf_gs_mdl, open(path + '\\src\\fit_model\\rf.pkl', 'wb'))
+pickle.dump(rf_gs_mdl, open(path + '/src/fit_model/rf.pkl', 'wb'))
